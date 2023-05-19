@@ -1,0 +1,16 @@
+body {
+    z-index:0;
+}
+.navbar_bg {
+    background-color: black;
+    height: 80px;
+}
+.navbar_bg a {
+    color: red;
+}
+.search_button_color {
+    color: red;
+}
+.nav_toggler_btn {
+    background-color: rgb(173, 20, 20);
+}

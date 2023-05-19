@@ -1,0 +1,13 @@
+.overview_bg {
+  padding: 50px;
+  background-color: black;
+  height: 100vh;
+}
+p{
+    /* border: 1px solid red; */
+    border-radius: 5px;
+    /* padding: 30px; */
+    color: white;
+    font-size: 1.3em;
+    font-family: playfair;
+}

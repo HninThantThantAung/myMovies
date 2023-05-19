@@ -1,0 +1,179 @@
+<div class="movies_bg">
+    <!-- popular movies -->
+    <hr>
+    <div class="popular_bg">
+      
+      <!-- <button class="btn btn-danger danger_btn" (click)="getPMovies($event)">Get Popular Movies</button> -->
+      <h3 (click)="getPMovies()">Popular Movies</h3>
+      <div class="media_scroller snaps_inline" *ngIf="!ploading">
+        
+        <div class="media_element" *ngFor="let p_movie of popularMovies">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <!-- <mat-card-title>Shiba Inu</mat-card-title> -->
+              <mat-card-subtitle style="font-size: 20px;font-family: playfair;">{{ p_movie.original_title }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://image.tmdb.org/t/p/w500/{{ p_movie.backdrop_path }}" alt="popular movies image">
+            <mat-card-content>
+              <!-- <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p> -->
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+              <button mat-button (click)="overview(p_movie.id)">OVERVIEW</button>
+            </mat-card-actions>
+          </mat-card> 
+        </div>
+      </div>
+      <div style="background: #992929; padding: 10px;" *ngIf="ploading">
+        <ngx-skeleton-loader
+          count="{{totalCount}}"
+          [theme]="{ 
+            'border-radius': '5px',
+            height: '100px',
+            'background-color': '#992929',
+            border: '1px solid white'
+          }"
+        ></ngx-skeleton-loader>
+      </div>
+    </div>
+  
+    
+  
+    <!-- top rated movies -->
+    <hr>
+    <!-- <button class="btn btn-primary" (click)="getPMovies()">Popular Movies</button> -->
+    <div class="popular_bg">
+      <!-- <button class="btn btn-danger danger_btn" (click)="getTMovies()">Get Top Rated Movies</button> -->
+      <h3 (click)="getTMovies()">Top Rated Movies</h3>
+      <div class="media_scroller" *ngIf="!tloading">
+        
+        <div class="media_element" *ngFor="let top_movie of topRatedMovies;">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <!-- <mat-card-title>Shiba Inu</mat-card-title> -->
+              <mat-card-subtitle style="font-size: 20px;font-family: playfair;">{{ top_movie.original_title }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://image.tmdb.org/t/p/w500/{{ top_movie.backdrop_path }}" alt="top rated movies image">
+            <mat-card-content>
+              <!-- <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p> -->
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+              <button mat-button (click)="overview(top_movie.id)">OVERVIEW</button>
+            </mat-card-actions>
+          </mat-card> 
+        </div>
+      </div>  
+  
+      <div style="background: #992929; padding: 10px;" *ngIf="tloading">
+        <ngx-skeleton-loader
+          count="{{totalCount}}"
+          [theme]="{ 
+            'border-radius': '5px',
+            height: '100px',
+            'background-color': '#992929',
+            border: '1px solid white'
+          }"
+        ></ngx-skeleton-loader>
+      </div>
+    </div>
+  
+    <!-- upcoming movies -->
+    <div class="popular_bg">
+      <!-- <button class="btn btn-danger danger_btn" (click)="getUMovies()">Get Upcoming Movies</button> -->
+      <h3 (click)="getUMovies()">Upcoming Movies</h3>
+      <div class="media_scroller" *ngIf="!uloading">
+        <div class="media_element" *ngFor="let up_movie of upcomingMovies">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <!-- <mat-card-title>Shiba Inu</mat-card-title> -->
+              <mat-card-subtitle style="font-size: 20px;font-family: playfair;">{{ up_movie.original_title }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://image.tmdb.org/t/p/w500/{{ up_movie.backdrop_path }}" alt="upcoming movies image">
+            <mat-card-content>
+              <!-- <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p> -->
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+              <button mat-button (click)="overview(up_movie.id)">OVERVIEW</button>
+            </mat-card-actions>
+          </mat-card> 
+        </div>
+      </div>  
+      <div style="background: #992929; padding: 10px;" *ngIf="uloading">
+        <ngx-skeleton-loader
+          count="{{totalCount}}"
+          [theme]="{ 
+            'border-radius': '5px',
+            height: '100px',
+            'background-color': '#992929',
+            border: '1px solid white'
+          }"
+        ></ngx-skeleton-loader>
+      </div>
+    </div>
+  
+    <!-- now_playing_movies -->
+    <div class="popular_bg">
+      <!-- <button class="btn btn-danger danger_btn" (click)="getNMovies()">Get Now Playing Movies</button> -->
+      <h3 (click)="getNMovies()">Now Playing Movies</h3>
+      <div class="media_scroller" *ngIf="!nloading">
+        
+        <div class="media_element" *ngFor="let now_movie of nowPlayingMovies">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <!-- <mat-card-title>Shiba Inu</mat-card-title> -->
+              <mat-card-subtitle style="font-size: 20px;font-family: playfair;">{{ now_movie.original_title }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://image.tmdb.org/t/p/w500/{{ now_movie.backdrop_path }}" alt="now playing movies image">
+            <mat-card-content>
+              <!-- <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p> -->
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+              <button mat-button (click)="overview(now_movie.id)">OVERVIEW</button>
+            </mat-card-actions>
+          </mat-card> 
+        </div>
+      </div>
+      <div style="background: #992929; padding: 10px;" *ngIf="nloading">
+        <ngx-skeleton-loader
+          count="{{totalCount}}"
+          [theme]="{ 
+            'border-radius': '5px',
+            height: '100px',
+            'background-color': '#992929',
+            border: '1px solid white'
+          }"
+        ></ngx-skeleton-loader>
+      </div>  
+    </div>
+    <!-- <div class="item">
+      <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+    </div> -->
+  </div>
+  

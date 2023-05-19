@@ -1,0 +1,104 @@
+@font-face {
+    font-family: playfair;
+    src: url(../../assets/font/PlayfairDisplay-Regular.ttf);
+}
+body {
+  z-index: 1;
+}
+.movies_bg {
+  background-color: black;
+}
+.popular_bg {
+  background-color: black;
+}
+.card_class {
+  margin: 0;
+  width: 28%;
+  /* width: 400px;
+    height: 200px; */
+  background-color: red;
+}
+.media_scroller {
+  --_spacer: var(--size-3);
+  display: grid;
+  gap: var(--_spacer);
+  grid-auto-flow: column;
+  grid-auto-columns: 36%;
+  background-color: white;
+
+  padding: 0 var(--_spacer) var(--_spacer);
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  background-color: black;
+}
+.media_element {
+  display: grid;
+  gap: var(--_spacer);
+  grid-template-rows: min-content;
+  padding: var(--_spacer);
+  background: var(--surface-2);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+}
+.media_element > img {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.media_element:hover img{
+  transform: scale(1);
+  opacity: 0.3;
+}
+
+.snaps_inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--_spacer, 1rem);
+}
+.snaps_inline > * {
+    scroll-snap-align: start;
+}
+.container {
+  inline-size: min(100% - 4rem, 70rem);
+  margin-inline: auto;
+}
+
+.flow {
+  display: grid;
+  gap: var(--size-3);
+}
+h3 {
+  font-size: 20px;
+  color: red;
+  margin-left: 30px;
+  margin-top: 30px;
+  font-family: playfair;
+}
+h3:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+hr {
+  background-color: red;
+}
+button {
+  width: 150px;
+  height: 40px;
+  /* background-color: rgb(221, 50, 50); */
+}
+:host >>> ngx-skeleton-loader .ploading {
+  height: 30px;
+}
+:host >>> ngx-skeleton-loader .tloading {
+  height: 30px;
+}
+:host >>> ngx-skeleton-loader .uloading {
+  height: 30px;
+}
+:host >>> ngx-skeleton-loader .nloading {
+  height: 30px;
+}
+.danger_btn{
+  width: 250px;
+}

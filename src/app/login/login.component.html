@@ -1,0 +1,62 @@
+<section>
+    <div class="form-box">
+      <div class="form-value">
+        <form action="">
+          <h2>Login</h2>
+          <div class="inputbox">
+            <!-- <i class="fa fa-user-o" aria-hidden="true"></i> -->
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              [(ngModel)]="username"
+              name = "username"
+              required minlength="5"
+              #myusername = 'ngModel'
+            />
+            <label for="username" class="form-label">Username</label>
+          </div>
+          <!-- ErrorMessage -->
+          <div *ngIf = "!myusername.valid && myusername.touched">
+            <div *ngIf = "myusername.errors?.['required']">
+              <p style="color: red;">Please enter a username.</p>
+            </div>
+            <div *ngIf = "myusername.errors?.['minlength']">
+              <p style="color: red;">Username must have at least 5 Characters.</p>
+            </div>
+          </div>
+          <div class="inputbox">
+            <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              
+            />
+            <label for="password" class="form-label">Password</label>
+          </div>
+          <!-- ErrorMessage -->
+          <!-- <div *ngIf = "!password.valid && password.touched">
+            <div *ngIf = "password.errors?.['required']">
+              <p>Please enter password.</p>
+            </div>
+            <div *ngIf = "password.errors?.['minlength']">
+              <p>Password is too short.Must have at least 5 Characters.</p>
+            </div>
+          </div> -->
+          <p style="color: red;">{{wrong}}</p>
+          <br>
+          <div class="forget">
+            <label for=""><input type="checkbox">Remember Me</label>
+            <a href="">Forget Password</a>
+          </div>
+          <button (click)="logIn()">Log in</button>
+          <div class="register">
+            <p>Don't have an account <a href="#">Register</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
