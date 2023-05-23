@@ -20,7 +20,7 @@ export class LoginComponent {
     console.log(this.username);
     console.log(this.password);
     if(
-      (this.username == "Hnin Thant Thant Aung" && this.password == "12345") ||
+      (this.username == "Hnin Thant Thant Aung" && this.password == "123456") ||
       (this.username == "Thant Thant" && this.password == "123")
     ){
       this.router.navigateByUrl("/movies");
