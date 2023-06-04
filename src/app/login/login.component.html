@@ -1,3 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar_bg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MOVIES</a>
+    <button
+      class="navbar-toggler nav_toggler_btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
+        </li>
+      </ul>
+      <form class="d-flex SearchInputSize" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-light search_button_color SearchBtnSize" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 <section>
     <div class="form-box">
       <div class="form-value">
@@ -52,7 +90,7 @@
             <label for=""><input type="checkbox">Remember Me</label>
             <a href="">Forget Password</a>
           </div>
-          <button (click)="logIn()">Log in</button>
+          <button class="loginBtn" (click)="logIn()">Log in</button>
           <div class="register">
             <p>Don't have an account <a href="#">Register</a></p>
           </div>

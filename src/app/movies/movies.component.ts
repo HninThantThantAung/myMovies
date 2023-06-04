@@ -23,6 +23,7 @@ export class MoviesComponent {
   upcomingMovies? : Result[];
   nowPlayingMovies? : Result[];
   movieId: number = 1;
+  searchText: any;
 
   private moviesSub = new Subscription();
 

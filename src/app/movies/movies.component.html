@@ -1,3 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar_bg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MOVIES</a>
+    <button
+      class="navbar-toggler nav_toggler_btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <!-- <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          [(ngModel)]="searchText"
+        /> -->
+        <!-- <button class="btn btn-outline-light search_button_color" type="submit">Search</button> -->
+      </form>
+      <input
+          class="form-control me-2 searchSize"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          [(ngModel)]="searchText"
+        />
+    </div>
+  </div>
+</nav>
 <div class="movies_bg">
     <!-- popular movies -->
     <hr>
@@ -7,7 +53,7 @@
       <h3 (click)="getPMovies()">Popular Movies</h3>
       <div class="media_scroller snaps_inline" *ngIf="!ploading">
         
-        <div class="media_element" *ngFor="let p_movie of popularMovies">
+        <div class="media_element" *ngFor="let p_movie of popularMovies | filter: searchText">
           <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -23,9 +69,9 @@
               </p> -->
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-              <button mat-button (click)="overview(p_movie.id)">OVERVIEW</button>
+              <button>LIKE</button>
+              <button>SHARE</button>
+              <button mat-button class="overviewBtn" (click)="overview(p_movie.id)">OVERVIEW</button>
             </mat-card-actions>
           </mat-card> 
         </div>
@@ -53,7 +99,7 @@
       <h3 (click)="getTMovies()">Top Rated Movies</h3>
       <div class="media_scroller" *ngIf="!tloading">
         
-        <div class="media_element" *ngFor="let top_movie of topRatedMovies;">
+        <div class="media_element" *ngFor="let top_movie of topRatedMovies | filter: searchText;">
           <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -71,7 +117,7 @@
             <mat-card-actions>
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
-              <button mat-button (click)="overview(top_movie.id)">OVERVIEW</button>
+              <button mat-button class="overviewBtn" (click)="overview(top_movie.id)">OVERVIEW</button>
             </mat-card-actions>
           </mat-card> 
         </div>
@@ -95,7 +141,7 @@
       <!-- <button class="btn btn-danger danger_btn" (click)="getUMovies()">Get Upcoming Movies</button> -->
       <h3 (click)="getUMovies()">Upcoming Movies</h3>
       <div class="media_scroller" *ngIf="!uloading">
-        <div class="media_element" *ngFor="let up_movie of upcomingMovies">
+        <div class="media_element" *ngFor="let up_movie of upcomingMovies | filter: searchText">
           <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -113,7 +159,7 @@
             <mat-card-actions>
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
-              <button mat-button (click)="overview(up_movie.id)">OVERVIEW</button>
+              <button mat-button class="overviewBtn" (click)="overview(up_movie.id)">OVERVIEW</button>
             </mat-card-actions>
           </mat-card> 
         </div>
@@ -137,7 +183,7 @@
       <h3 (click)="getNMovies()">Now Playing Movies</h3>
       <div class="media_scroller" *ngIf="!nloading">
         
-        <div class="media_element" *ngFor="let now_movie of nowPlayingMovies">
+        <div class="media_element" *ngFor="let now_movie of nowPlayingMovies | filter: searchText">
           <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -155,7 +201,7 @@
             <mat-card-actions>
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
-              <button mat-button (click)="overview(now_movie.id)">OVERVIEW</button>
+              <button mat-button class="overviewBtn" (click)="overview(now_movie.id)">OVERVIEW</button>
             </mat-card-actions>
           </mat-card> 
         </div>
